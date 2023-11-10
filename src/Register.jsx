@@ -42,9 +42,14 @@ const Register = () => {
         setErrMsg("")
     }, [user, pwd, matchPwd])
     return (
-        <div>
+        <>
+        <p ref={errRef} className={errMsg? 'errmsg' : 'offscreen'} aria-live="assertive">{errMsg}</p>
+            <form>
+                <label>
 
-        </div>
+                </label>
+            </form>
+        </>
     )
 }
 
