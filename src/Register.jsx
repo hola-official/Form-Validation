@@ -66,7 +66,8 @@ const Register = () => {
                     'offscreen'}>
                     <FontAwesomeIcon icon={faInfoCircle} />
                     8-24 characters.<br /> Must include UpperCase and LowerCase Letters, 
-                    a number and a special character.<br />
+                    number and a special character.<br />
+                    
                 </p>
             </form>
         </>
