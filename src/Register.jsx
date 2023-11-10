@@ -65,6 +65,8 @@ const Register = () => {
                 <p id="uidnote" className={userFocus && user && !validName ? 'instruction' :
                     'offscreen'}>
                     <FontAwesomeIcon icon={faInfoCircle} />
+                    8-24 characters.<br /> Must include UpperCase and LowerCase Letters, 
+                    a number and a special character.<br />
                 </p>
             </form>
         </>
