@@ -3,9 +3,9 @@ import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from './api/axios'
 
-const USER_REGEX = /^[A-Z][A-Z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
-const REGISTER_URL = '/register' 
+const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const PWD_REGEX = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
+const REGISTER_URL = '/register'
 
 const Register = () => {
     const userRef = useRef()
@@ -18,11 +18,24 @@ const Register = () => {
     const [matchPwd, setMatchPwd] = useState('')
     const [validMatch, setValidMatch] = useState(false)
     const [matchFocus, setMatchFocus] = useState(false)
-  return (
-    <div>
-      
-    </div>
-  )
+
+    const [errMsg, setErrMsg] = useState('')
+    const [succes, setSucces] = useState(false)
+
+    useEffect(() => {
+        useRef.current.focus()
+    }, [])
+
+    useEffect(() => {
+        setValidName(USER_REGEX.test(user))
+    }, [user])
+
+
+    return (
+        <div>
+
+        </div>
+    )
 }
 
 export default Register
