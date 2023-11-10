@@ -73,8 +73,18 @@ const Register = () => {
                 <label htmlFor="password">
                     password:
                     <FontAwesomeIcon icon={faCheck} className={validPwd ? 'valid' : 'hide'} />
-                    <FontAwesomeIcon icon={faTimes} className={!pwd ? 'hide' : 'invalid'} />
+                    <FontAwesomeIcon icon={faTimes} className={validPwd || !pwd ? 'hide' : 'invalid'} />
                 </label>
+                <input type="password"
+                    id="password"
+                    onChange={(e) => setPwd(e.target.value)}
+                    value={user}
+                    required
+                    aria-invalid={validName ? 'false' : 'true'}
+                    aria-describedby="uninote"
+                    onFocus={() => setPwdFocus(true)}
+                    onBlur={() => setPwdFocus(false)}
+                />
 
                 Must include UpperCase and LowerCase Letters, 
                     number and a special character.<br />
