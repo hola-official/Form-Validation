@@ -50,10 +50,11 @@ const Register = () => {
                     <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? 'valid' : 'hide'} />
                     <FontAwesomeIcon icon={faTimes} className={validMatch || matchPwd ? 'hide' : 'invalid'} />
                 </label>
-                <input type="password" id="password" 
-                onChange={(e) => setPwd(e.target.value)}
-                value={pwd}
-                 />
+                <input type="password"
+                    id="password"
+                    onChange={(e) => setPwd(e.target.value)}
+                    value={user}
+                />
             </form>
         </>
     )
