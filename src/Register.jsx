@@ -56,6 +56,10 @@ const Register = () => {
                     autoComplete="off"
                     onChange={(e) => setUser(e.target.value)}
                     value={user}
+                    required
+                    aria-invalid={validName ? 'false' : 'true'}
+                    aria-describedby="uninote"
+                    onFocus={() => setUserFocus(true)}
                 />
             </form>
         </>
