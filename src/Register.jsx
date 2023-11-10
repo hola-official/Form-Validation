@@ -70,6 +70,12 @@ const Register = () => {
                     letter, number, underscore, hyphens Allowed
 
                 </p>
+                <label htmlFor="password">
+                    password:
+                    <FontAwesomeIcon icon={faCheck} className={validPwd ? 'valid' : 'hide'} />
+                    <FontAwesomeIcon icon={faTimes} className={!pwd ? 'hide' : 'invalid'} />
+                </label>
+
                 Must include UpperCase and LowerCase Letters, 
                     number and a special character.<br />
                     Allowed special character:
