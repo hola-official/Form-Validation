@@ -60,7 +60,12 @@ const Register = () => {
                     aria-invalid={validName ? 'false' : 'true'}
                     aria-describedby="uninote"
                     onFocus={() => setUserFocus(true)}
+                    onBlur={() => setUserFocus(false)}
                 />
+                <p id="uidnote" className={userFocus && user && !validName ? 'instruction' :
+                    'offscreen'}>
+                    <FontAwesomeIcon icon={faInfoCircle} />
+                </p>
             </form>
         </>
     )
