@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from './api/axios'
+// import axios from './api/axios'
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
+const USER_REGEX = /^[a-z][A-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
 const REGISTER_URL = '/register'
 
@@ -27,7 +27,7 @@ const Register = () => {
     const [succes, setSucces] = useState(false)
 
     useEffect(() => {
-        useRef.current.focus()
+        userRef.current.focus()
     }, [])
 
     useEffect(() => {
@@ -41,6 +41,14 @@ const Register = () => {
     useEffect(() => {
         setErrMsg("")
     }, [user, pwd, matchPwd])
+
+    // const handleSubmit = async () => {
+    //     try {
+
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
     return (
         <>
             <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">{errMsg}</p>
@@ -62,7 +70,7 @@ const Register = () => {
                     onFocus={() => setUserFocus(true)}
                     onBlur={() => setUserFocus(false)}
                 />
-                <p id="uidnote" className={userFocus && user && !validName ? 'instruction' :
+                <p id="uidnote" className={userFocus && user && !validName ? 'instructions' :
                     'offscreen'}>
                     <FontAwesomeIcon icon={faInfoCircle} />
                     3 to 23 characters.<br />
@@ -85,15 +93,18 @@ const Register = () => {
                     onFocus={() => setPwdFocus(true)}
                     onBlur={() => setPwdFocus(false)}
                 />
-
-                <p id="uidnote" className={userFocus && user && !validName ? 'instruction' :
+                <p id="pwdnote" className={pwdFocus && !validPwd ? 'instructions' :
                     'offscreen'}>
                     <FontAwesomeIcon icon={faInfoCircle} />
                     8 to 24 characters. <br />
                     Must include UpperCase and LowerCase Letters,
                     number and a special character.<br />
-                    Allowed special character:
+                    Allowed special character:  <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+
+
                 </p>
+
+
             </form>
         </>
     )
