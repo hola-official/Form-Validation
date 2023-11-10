@@ -93,10 +93,7 @@ const Register = () => {
                     Must include UpperCase and LowerCase Letters,
                     number and a special character.<br />
                     Allowed special character:
-
                 </p>
-
-
             </form>
         </>
     )
