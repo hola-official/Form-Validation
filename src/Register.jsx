@@ -78,9 +78,9 @@ const Register = () => {
                 <input type="password"
                     id="password"
                     onChange={(e) => setPwd(e.target.value)}
-                    value={user}
+                    value={pwd}
                     required
-                    aria-invalid={validName ? 'false' : 'true'}
+                    aria-invalid={validPwd ? 'false' : 'true'}
                     aria-describedby="uninote"
                     onFocus={() => setPwdFocus(true)}
                     onBlur={() => setPwdFocus(false)}
