@@ -43,10 +43,11 @@ const Register = () => {
     }, [user, pwd, matchPwd])
     return (
         <>
-        <p ref={errRef} className={errMsg? 'errmsg' : 'offscreen'} aria-live="assertive">{errMsg}</p>
+            <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">{errMsg}</p>
             <form>
-                <label>
-
+                <label htmlFor="username">
+                    username:
+                    <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? 'valid' : 'hide'} />
                 </label>
             </form>
         </>
