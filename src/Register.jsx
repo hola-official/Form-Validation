@@ -53,8 +53,8 @@ const Register = () => {
     return (
         <>
             <section>
-                <h1>Register</h1>
                 <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">{errMsg}</p>
+                <h1>Register</h1>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="username">
                         username:
@@ -126,7 +126,11 @@ const Register = () => {
                         <FontAwesomeIcon icon={faInfoCircle} />
                         Must match the first password input filed
                     </p>
+                    <button disabled={!validName || !validPwd ? true : false}>Sign Up</button>
                 </form>
+                <p>
+                    Already have an account?<Link href="/login"><a>Log in here.</a></Link>
+                </p>
             </section>
         </>
     )
