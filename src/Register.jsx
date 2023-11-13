@@ -129,7 +129,10 @@ const Register = () => {
                     <button disabled={!validName || !validPwd ? true : false}>Sign Up</button>
                 </form>
                 <p>
-                    Already have an account?<Link href="/login"><a>Log in here.</a></Link>
+                    Already have an account?<br />
+                    <span className="line">
+                    <a href="/login">Log in here.</a>
+                    </span>
                 </p>
             </section>
         </>
