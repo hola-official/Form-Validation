@@ -52,6 +52,7 @@ const Register = () => {
     return (
         <>
             <section>
+                <h1>Register</h1>
                 <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">{errMsg}</p>
                 <form>
                     <label htmlFor="username">
@@ -107,18 +108,18 @@ const Register = () => {
                     <label htmlFor="confirm_password">
                         confirm password:
                         <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? 'valid' : 'hide'} />
-                        <FontAwesomeIcon icon={faTimes} className={validMatch && !matchPwd ? 'hide' : 'invalid'} />
+                        <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? 'hide' : 'invalid'} />
                     </label>
                     <input
                         type="password"
-                        id="password"
-                        onChange={(e) => setPwd(e.target.value)}
-                        value={pwd}
+                        id="confirm_password"
+                        onChange={(e) => setMatchPwd(e.target.value)}
+                        value={matchPwd}
                         required
-                        aria-invalid={validPwd ? 'false' : 'true'}
-                        aria-describedby="uninote"
-                        onFocus={() => setPwdFocus(true)}
-                        onBlur={() => setPwdFocus(false)}
+                        aria-invalid={validMatch ? 'false' : 'true'}
+                        aria-describedby="confirmnote"
+                        onFocus={() => setMatchFocus(true)}
+                        onBlur={() => setMatchFocus(false)}
                     />
                 </form>
             </section>
