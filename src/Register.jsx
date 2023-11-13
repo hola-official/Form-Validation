@@ -24,7 +24,7 @@ const Register = () => {
     const [matchFocus, setMatchFocus] = useState(false)
 
     const [errMsg, setErrMsg] = useState('')
-    const [succes, setSucces] = useState(false)
+    const [success, setSuccess] = useState(false)
 
     useEffect(() => {
         userRef.current.focus()
@@ -47,6 +47,17 @@ const Register = () => {
         e.preventDefault()
         const v1 = USER_REGEX.test(user)
         const v2 = PWD_REGEX.test(pwd)
+
+        if(!v1 || !v2) {
+            setErrMsg('Invalid Entry')
+            return
+        }
+            console.log(user, pwd)
+            setSuccess(true)
+            // clear state and control inputs filed
+            setUser('')
+            setPwd('')
+            setMatchPwd('')
     }
 
     return (
