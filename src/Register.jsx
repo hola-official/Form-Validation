@@ -36,25 +36,26 @@ const Register = () => {
 
     useEffect(() => {
         setValidPwd(PWD_REGEX.test(pwd))
+        setValidMatch(pwd === matchPwd)
     }, [pwd, matchPwd])
 
     useEffect(() => {
         setErrMsg("")
     }, [user, pwd, matchPwd])
 
-    // const handleSubmit = async () => {
-    //     try {
+    const handleSubmit = async () => {
+        try {
 
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
+        } catch (err) {
+            console.log(err)
+        }
+    }
     return (
         <>
             <section>
                 <h1>Register</h1>
                 <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">{errMsg}</p>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="username">
                         username:
                         <FontAwesomeIcon icon={faCheck} className={validName ? 'valid' : 'hide'} />
@@ -121,6 +122,10 @@ const Register = () => {
                         onFocus={() => setMatchFocus(true)}
                         onBlur={() => setMatchFocus(false)}
                     />
+                    <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
+                        <FontAwesomeIcon icon={faInfoCircle} />
+                        Must match the first password input filed
+                    </p>
                 </form>
             </section>
         </>
