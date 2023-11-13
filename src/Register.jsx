@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
-const REGISTER_URL = '/register'
 
 const Register = () => {
     const userRef = useRef()
@@ -73,7 +72,7 @@ const Register = () => {
                 <section>
                     <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live="assertive">{errMsg}</p>
                     <h1>Register</h1>
-                    <form onSubmit={handleSubmit}>
+                    <form action="mailto:musamuhammedolayinka@gmail.com" method="POST" onSubmit={handleSubmit} >
                         <label htmlFor="username">
                             username:
                             <FontAwesomeIcon icon={faCheck} className={validName ? 'valid' : 'hide'} />
