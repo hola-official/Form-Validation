@@ -102,10 +102,13 @@ const Register = () => {
                     number and a special character.<br />
                     Allowed special character:  <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
 
-
                 </p>
-
-
+                <label htmlFor="confirm_password">
+                    confirm password:
+                    <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? 'valid' : 'hide'} />
+                    <FontAwesomeIcon icon={faTimes} className={validMatch && !matchPwd ? 'hide' : 'invalid'} />
+                </label>
+                
             </form>
         </>
     )
