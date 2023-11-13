@@ -43,13 +43,12 @@ const Register = () => {
         setErrMsg("")
     }, [user, pwd, matchPwd])
 
-    const handleSubmit = async () => {
-        try {
-
-        } catch (err) {
-            console.log(err)
-        }
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const v1 = USER_REGEX.test(user)
+        const v2 = PWD_REGEX.test(pwd)
     }
+
     return (
         <>
             <section>
@@ -131,7 +130,7 @@ const Register = () => {
                 <p>
                     Already have an account?<br />
                     <span className="line">
-                    <a href="/login">Log in here.</a>
+                        <a href="/login">Log in here.</a>
                     </span>
                 </p>
             </section>
